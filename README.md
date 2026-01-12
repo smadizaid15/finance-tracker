@@ -1,8 +1,5 @@
 # 💰 Finance Tracker (Containerized)
 
-![Build Status](https://github.com/zaidsmadii/finance-tracker/actions/workflows/ci-cd.yml/badge.svg)
-![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)
-
 A full-stack finance tracking application built with a microservices architecture that allows users to track income/expenses and persists data using a containerized MongoDB instance The entire stack is automated via a CI/CD pipeline.
 
 ## 🚀 Key Features
