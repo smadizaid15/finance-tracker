@@ -41,3 +41,13 @@ async function addTransaction(e) {
 
 form.addEventListener('submit', addTransaction);
 getTransactions();
+const resetBtn = document.getElementById('reset-btn');
+
+resetBtn.addEventListener('click', async () => {
+    if (confirm('Are you sure you want to delete all records?')) {
+        await fetch(API_URL, {
+            method: 'DELETE'
+        });
+        getTransactions();
+    }
+});

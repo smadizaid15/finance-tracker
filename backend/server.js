@@ -32,5 +32,9 @@ app.post('/api/transactions', async (req, res) => {
   res.status(201).json({ data: transaction });
 });
 
+app.delete('/api/transactions', async (req, res) => {
+  await Transaction.deleteMany({}); 
+  res.json({ success: true, data: [] });
+});
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
