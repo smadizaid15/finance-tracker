@@ -22,7 +22,7 @@ You do not need Node.js or MongoDB installed. Just Docker.
 
 1. **Clone the repo**
    ```bash
-   git clone [https://github.com/zaidsmadii/finance-tracker.git](https://github.com/zaidsmadii/finance-tracker.git)
+   git clone https://github.com/smadizaid15/finance-tracker.git
    cd finance-tracker
 
 ## then run 

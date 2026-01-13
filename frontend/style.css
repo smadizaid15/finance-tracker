@@ -64,3 +64,12 @@ input {
 
 .list li.plus { border-right: 5px solid #2ecc71; }
 .list li.minus { border-right: 5px solid #c0392b; }
+
+.reset-btn {
+  background-color: #e74c3c; /* Red */
+  margin-top: 20px;
+}
+
+.reset-btn:hover {
+  background-color: #c0392b; /* Darker Red */
+}

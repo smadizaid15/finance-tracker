@@ -1,14 +1,15 @@
 const form = document.getElementById('form');
 const list = document.getElementById('list');
 const balance = document.getElementById('balance');
+const resetBtn = document.getElementById('reset-btn'); // New Button
 
-
+// Point to backend
 const API_URL = 'http://localhost:5000/api/transactions'; 
 
 async function getTransactions() {
     const res = await fetch(API_URL);
     const data = await res.json();
-   
+    
     list.innerHTML = '';
     let total = 0;
 
@@ -16,7 +17,10 @@ async function getTransactions() {
         total += transaction.amount;
         const li = document.createElement('li');
         li.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
-        li.innerText = `${transaction.text} <span>${transaction.amount < 0 ? '-' : '+'}$${Math.abs(transaction.amount)}</span>`;
+        
+        // FIX IS HERE: Changed innerText to innerHTML
+        li.innerHTML = `${transaction.text} <span>${transaction.amount < 0 ? '-' : '+'}$${Math.abs(transaction.amount)}</span>`;
+        
         list.appendChild(li);
     });
 
@@ -39,15 +43,13 @@ async function addTransaction(e) {
     getTransactions();
 }
 
-form.addEventListener('submit', addTransaction);
-getTransactions();
-const resetBtn = document.getElementById('reset-btn');
-
+// NEW: Reset Function
 resetBtn.addEventListener('click', async () => {
-    if (confirm('Are you sure you want to delete all records?')) {
-        await fetch(API_URL, {
-            method: 'DELETE'
-        });
-        getTransactions();
+    if (confirm('Are you sure you want to delete ALL history?')) {
+        await fetch(API_URL, { method: 'DELETE' });
+        getTransactions(); // Refresh the empty list
     }
 });
+
+form.addEventListener('submit', addTransaction);
+getTransactions();
